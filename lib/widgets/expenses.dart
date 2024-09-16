@@ -1,3 +1,4 @@
+import 'package:expenses_track/widgets/chart/chart.dart';
 import 'package:expenses_track/widgets/expenses_list.dart';
 import 'package:expenses_track/models/expense.dart';
 import 'package:expenses_track/widgets/new_expense.dart';
@@ -88,8 +89,37 @@ class _ExpensesState extends State<Expenses> {
         ],
       ),
       body: Column(
-        children: [const Text('The chart'), Expanded(child: mainContent)],
+        children: [
+          Chart(expenses: _registeredExpenses),
+          Expanded(child: mainContent),
+        ],
       ),
     );
+  }
+}
+
+class ExpenseBucket {
+  const ExpenseBucket({
+    required this.category,
+    required this.expenses,
+  });
+
+  // adding alternative constructor, not the default one
+  ExpenseBucket.forCategory(List<Expense> allExpenses, this.category)
+      : expenses = allExpenses
+            .where((expense) => expense.category == category)
+            .toList();
+
+  final Category category;
+  final List<Expense> expenses;
+
+  double get totalExpenses {
+    double sum = 0;
+
+    for (final expenses in expenses) {
+      sum += expenses.amount;
+    }
+
+    return sum;
   }
 }
