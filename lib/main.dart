@@ -1,13 +1,11 @@
-import 'package:expenses_track/widgets/homePage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
-  seedColor: const Color.fromARGB(255, 180, 172, 219),
+  seedColor: const Color.fromARGB(255, 96, 59, 181),
 );
 var kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(214, 64, 89, 233),
+  seedColor: const Color.fromRGBO(255, 5, 99, 125),
 );
 
 void main() {
@@ -57,7 +55,7 @@ void main() {
             ),
       ),
       //themeMode: ThemeMode.system, //default
-      home: const Homepage(),
+      home: const Expenses(),
     ),
   );
 //  });
