@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expenses_track/widgets/home_page.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
@@ -55,7 +56,7 @@ void main() {
             ),
       ),
       //themeMode: ThemeMode.system, //default
-      home: const Expenses(),
+      home: const Homepage(),
     ),
   );
 //  });
